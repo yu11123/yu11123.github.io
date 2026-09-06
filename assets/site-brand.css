@@ -50,3 +50,72 @@
   transform: translateY(-200%);
 }
 .site-skip-link:focus { transform: none; }
+
+.site-footer {
+  padding-block: .8rem;
+  border-top: 1px solid rgb(32 34 31 / .17);
+  background: #e8e3ed;
+  color: #464943;
+  font-family: var(--font-body);
+  font-size: .95rem;
+  line-height: 1.4;
+}
+.site-footer-row,
+.site-footer-contact {
+  display: flex;
+  align-items: center;
+}
+.site-footer-row { justify-content: space-between; gap: 1.5rem; }
+.site-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  min-height: 44px;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 150ms ease;
+}
+.site-footer .site-footer-name {
+  color: #20221f;
+  font-family: var(--font-display);
+  font-size: .9rem;
+  font-weight: 650;
+  letter-spacing: -.02em;
+}
+.site-footer-contact { gap: 1.4rem; }
+.site-footer-contact a + a { position: relative; padding-left: 1.4rem; }
+.site-footer-contact a + a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 1.35rem;
+  border-left: 1px solid rgb(32 34 31 / .22);
+}
+.site-footer a:hover { color: #985447; text-decoration: underline; text-underline-offset: .25em; }
+.site-footer a:focus-visible { outline: 2px solid #985447; outline-offset: 4px; }
+.site-footer-icon {
+  flex: 0 0 auto;
+  width: 1.1rem;
+  height: 1.1rem;
+  background: currentColor;
+  mask: var(--footer-icon) center / contain no-repeat;
+  -webkit-mask: var(--footer-icon) center / contain no-repeat;
+}
+.site-footer-mail { --footer-icon: url("icons/mail.svg"); }
+.site-footer-linkedin { --footer-icon: url("icons/brand-linkedin.svg"); }
+.site-footer-email-short { display: none; }
+@media (max-width: 640px) {
+  .site-footer { padding-block: .65rem; font-size: .875rem; }
+  .site-footer-row { gap: .75rem; }
+  .site-footer .site-footer-name { font-size: .82rem; }
+  .site-footer-contact { gap: .75rem; }
+  .site-footer-contact a + a { padding-left: .75rem; }
+  .site-footer-email-full { display: none; }
+  .site-footer-email-short { display: inline; }
+}
+@media (max-width: 360px) {
+  .site-footer-contact { gap: .55rem; }
+  .site-footer-contact a + a { padding-left: .55rem; }
+  .site-footer-icon { display: none; }
+}
