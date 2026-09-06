@@ -23,6 +23,11 @@
   --color-accent-text: #985447;
 }
 
+#stories .section-intro {
+  max-width: none;
+  text-wrap: wrap;
+}
+
 .site-header .home-mark {
   display: inline-flex;
   min-height: 44px;
