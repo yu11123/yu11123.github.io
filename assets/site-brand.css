@@ -1,0 +1,52 @@
+@font-face {
+  font-family: "Rachel Manrope";
+  src: url("fonts/manrope-latin-variable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rachel Source Sans";
+  src: url("fonts/source-sans-3-latin-variable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+:root {
+  --display: "Rachel Manrope", "Avenir Next", system-ui, sans-serif;
+  --body: "Rachel Source Sans", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Rachel Manrope", "Avenir Next", system-ui, sans-serif;
+  --font-body: "Rachel Source Sans", "Segoe UI", system-ui, sans-serif;
+  --accent-text: #985447;
+  --color-accent-text: #985447;
+}
+
+.site-header .home-mark {
+  display: inline-flex;
+  min-height: 44px;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: .7rem;
+  color: var(--fg, var(--color-text, #20221f));
+  font-family: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
+  font-size: .76rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .055em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.site-skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 1rem;
+  left: 1rem;
+  padding: .75rem 1rem;
+  background: #faf7ef;
+  color: #20251f;
+  transform: translateY(-200%);
+}
+.site-skip-link:focus { transform: none; }

@@ -1,0 +1,1113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-FTqIZZausqAHrNFYQ5sm/Dh7aak53E7qURte+RlWlOI='; style-src 'self' 'sha256-7E5DGroXuTB7auZdQkmCLlb3hawi1sZ1xV1dklhsyZw='; img-src 'self' data:; font-src 'self'; media-src 'self'; frame-src https://www.youtube-nocookie.com; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Rachel Chen's portfolio of technology, community, culture, music, translation, and travel.">
+  <link rel="canonical" href="https://yu11123.github.io/">
+  <title>Rachel Chen | Portfolio</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root {
+      --bg: oklch(0.979 0.0123 91.52);
+      --surface: oklch(0.9424 0.015 151.76);
+      --paper: oklch(0.9942 0.0069 88.64);
+      --lilac: oklch(0.9164 0.0167 301.2);
+      --fg: #20221f;
+      --muted: #626760;
+      --accent: #d18e7f;
+      --border: rgb(32 34 31 / .16);
+      --header-height: 58px;
+      --page: clamp(1.25rem, 4vw, 4.5rem);
+      --radius: 16px;
+      --display: ui-rounded, "SF Pro Rounded", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --meta: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
+      --ease: cubic-bezier(.2, 0, 0, 1);
+    }
+
+    * { box-sizing: border-box; }
+    html { overflow-x: clip; scroll-behavior: smooth; scroll-padding-top: var(--header-height); }
+    body {
+      margin: 0;
+      overflow-x: clip;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--body);
+      font-size: 17px;
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+    }
+    body.menu-open { overflow: hidden; }
+    figure { margin: 0; }
+    img { display: block; width: 100%; }
+    a, button { color: inherit; }
+    button { font: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--fg);
+      outline-offset: 3px;
+    }
+    .shell {
+      width: min(100%, 1440px);
+      margin-inline: auto;
+      padding-inline: var(--page);
+    }
+    .display {
+      margin: 0;
+      font-family: var(--display);
+      font-weight: 600;
+      letter-spacing: -.035em;
+      line-height: 1.06;
+      text-wrap: balance;
+    }
+    .section {
+      position: relative;
+      padding-block: clamp(4rem, 6vw, 5.5rem);
+    }
+    .section-title {
+      max-width: 30ch;
+      font-size: clamp(2.15rem, 3vw, 2.75rem);
+    }
+    .section-intro {
+      max-width: 51ch;
+      margin: 1.15rem 0 0;
+      color: var(--muted);
+      font-size: clamp(1.02rem, 1.35vw, 1.2rem);
+      text-wrap: pretty;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .site-header {
+      position: fixed;
+      z-index: 30;
+      inset: 0 0 auto;
+      display: flex;
+      min-height: var(--header-height);
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
+      background: color-mix(in srgb, var(--bg) 96%, transparent);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+    .site-nav {
+      display: flex;
+      align-self: stretch;
+      align-items: center;
+      gap: .3rem;
+    }
+    .site-nav a {
+      position: relative;
+      display: grid;
+      min-height: 36px;
+      place-items: center;
+      padding: .42rem clamp(.68rem, 1.25vw, 1rem);
+      border: 1px solid transparent;
+      border-radius: 10px;
+      color: color-mix(in srgb, var(--fg) 48%, transparent);
+      font-family: var(--meta);
+      font-size: .74rem;
+      font-weight: 650;
+      letter-spacing: .055em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 180ms var(--ease), background-color 180ms var(--ease), border-color 180ms var(--ease), transform 180ms var(--ease);
+    }
+    .site-nav a:hover,
+    .site-nav a[aria-current="location"] {
+      border-color: color-mix(in srgb, var(--fg) 13%, transparent);
+      background: var(--paper);
+      color: var(--fg);
+    }
+    .site-nav a:hover { transform: translateY(-1px); }
+    .menu-button { display: none; }
+
+    .hero {
+      min-height: 100svh;
+      padding-top: var(--header-height);
+      background: var(--surface);
+    }
+    .hero > .shell {
+      display: grid;
+      min-height: calc(100svh - var(--header-height));
+      align-items: center;
+      padding-block: 1rem;
+    }
+    .hero-archive {
+      position: relative;
+      min-height: min(610px, calc(100svh - var(--header-height) - 3rem));
+    }
+    .hero-archive::before,
+    .hero-archive::after { display: none; }
+    .hero-grid {
+      position: relative;
+      display: grid;
+      min-height: inherit;
+      grid-template-columns: minmax(0, 1.35fr) minmax(350px, .86fr);
+      gap: clamp(.75rem, 1.2vw, 1.1rem);
+      align-items: stretch;
+    }
+    .hero-main {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(2.4rem, 4.4vw, 4.6rem);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+    .hero-kicker {
+      margin: 0 0 clamp(1.8rem, 4vh, 3.2rem);
+      color: var(--accent-text);
+      font-family: var(--meta);
+      font-size: .72rem;
+      font-weight: 650;
+      letter-spacing: .055em;
+      text-transform: uppercase;
+    }
+    .hero-title {
+      max-width: 8ch;
+      font-size: clamp(4.1rem, 6.4vw, 5.65rem);
+      line-height: .91;
+      letter-spacing: -.055em;
+    }
+    .hero-greeting {
+      display: block;
+      margin-bottom: .45rem;
+      font-family: var(--body);
+      font-size: .47em;
+      font-weight: 550;
+      letter-spacing: -.025em;
+      line-height: 1;
+    }
+    .hero-name { display: block; white-space: nowrap; }
+    .hero-name > span { display: inline-block; }
+    .hero-name > span + span { margin-left: .18em; }
+    .nowrap { white-space: nowrap; }
+    .hero-intro {
+      max-width: 36ch;
+      margin: clamp(1.5rem, 3vh, 2.2rem) 0 0;
+      color: var(--fg);
+      font-size: clamp(1.02rem, 1.25vw, 1.16rem);
+      line-height: 1.48;
+      text-wrap: pretty;
+    }
+    .hero-bio {
+      display: grid;
+      max-width: 57ch;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(1rem, 2vw, 2rem);
+      margin-top: auto;
+      padding-top: clamp(1.4rem, 3vh, 2rem);
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: clamp(.82rem, .88vw, .92rem);
+    }
+    .hero-bio p { margin: 0; }
+    .hero-frame {
+      display: grid;
+      overflow: hidden;
+      min-height: 0;
+      place-items: stretch center;
+      padding: clamp(.75rem, 1.25vw, 1.15rem);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--lilac);
+      box-shadow: none;
+      transform: none;
+    }
+    .hero-frame img {
+      width: auto;
+      max-width: 100%;
+      height: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: 50% 50%;
+      border: 1px solid color-mix(in srgb, var(--fg) 13%, transparent);
+      border-radius: calc(var(--radius) - 5px);
+    }
+    .work { background: var(--surface); }
+    .work .shell > header,
+    .interests .shell > header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: .75rem;
+      align-items: start;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .work .section-intro,
+    .interests .section-intro { margin: 0; }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-auto-rows: 1fr;
+      gap: clamp(2.5rem, 4vw, 4rem) clamp(1rem, 2vw, 1.75rem);
+      margin-top: clamp(2rem, 4vw, 3.25rem);
+    }
+    .project-card {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      min-width: 0;
+      overflow: visible;
+      flex-direction: column;
+      aspect-ratio: auto;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+    }
+    .project-card::before,
+    .project-card::after { display: none; }
+    .project-card:focus-within { box-shadow: none; }
+    .project-image {
+      position: relative;
+      inset: auto;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--bg);
+    }
+    .project-image img {
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.84) contrast(.94);
+      transition: filter 220ms var(--ease), transform 260ms var(--ease);
+    }
+    .project-image--volunteer img { object-position: 43% 50%; }
+    .project-image--presentation img { object-position: 50% 42%; }
+    .project-image--performance img { object-position: 50% 38%; }
+    .project-card:hover .project-image img,
+    .project-card:focus-within .project-image img {
+      filter: saturate(.94) contrast(.96);
+      transform: scale(1.025);
+    }
+    .project-copy {
+      position: relative;
+      z-index: 2;
+      inset: auto;
+      display: flex;
+      min-width: 0;
+      flex: 1;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.05rem .15rem 0;
+      color: var(--fg);
+      text-shadow: none;
+    }
+    .project-meta {
+      min-height: 0;
+      margin: 0 0 .5rem;
+      color: var(--accent-text);
+      font-family: var(--meta);
+      font-size: .64rem;
+      font-weight: 700;
+      line-height: 1.45;
+      letter-spacing: .065em;
+      text-transform: uppercase;
+    }
+    .project-copy h3 {
+      max-width: 24ch;
+      min-height: 0;
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(1.25rem, 1.45vw, 1.5rem);
+      line-height: 1.16;
+      letter-spacing: -.025em;
+      text-wrap: balance;
+    }
+    .project-card-link {
+      position: absolute;
+      z-index: 3;
+      inset: 0;
+      border-radius: var(--radius);
+    }
+    .project-card-link:focus-visible {
+      outline: 2px solid var(--fg);
+      outline-offset: 4px;
+    }
+
+    .interests {
+      background: linear-gradient(180deg, var(--surface) 0, var(--bg) 6rem);
+    }
+    .interest-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(1rem, 2vw, 1.6rem);
+      margin-top: clamp(2.5rem, 5vw, 4.25rem);
+    }
+    .interest-card {
+      position: relative;
+      height: clamp(260px, 21vw, 292px);
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--lilac);
+      scroll-margin-top: calc(var(--header-height) + 1.5rem);
+    }
+    .interest-card:focus-visible {
+      outline: 2px solid var(--fg);
+      outline-offset: 3px;
+    }
+    .interest-media {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .interest-media img {
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.84) contrast(.95);
+      transition: transform 260ms var(--ease), filter 260ms var(--ease);
+    }
+    .interest-singer-image { object-position: 36% 50%; }
+    .interest-guitarist-image { object-position: 50% 35%; }
+    .interest-concertgoer-image { object-position: 50% 70%; }
+    .interest-japanese-culture-image { object-position: 50% 79%; }
+    .interest-cycling-image {
+      object-position: 36% 58%;
+      transform: scale(1.4);
+      transform-origin: 60% 82%;
+    }
+    .interest-card::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      inset: 58% 0 0;
+      background: linear-gradient(180deg, transparent 0, rgb(20 22 20 / .08) 38%, rgb(20 22 20 / .64) 100%);
+      pointer-events: none;
+      transition: inset 280ms var(--ease), background 280ms var(--ease);
+    }
+    .interest-overlay {
+      position: absolute;
+      z-index: 2;
+      inset: auto 0 0;
+      padding: 1.15rem 1.2rem 1.2rem;
+      color: var(--paper);
+      transform: translateY(calc(100% - 3.3rem));
+      transition: transform 360ms var(--ease);
+    }
+    .interest-overlay::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: -4.5rem 0 0;
+      background: linear-gradient(180deg, transparent 0, rgb(24 27 24 / .1) 52%, rgb(24 27 24 / .58) 100%);
+      backdrop-filter: blur(0) saturate(100%);
+      -webkit-backdrop-filter: blur(0) saturate(100%);
+      mask-image: linear-gradient(180deg, transparent 0, #000 34%, #000 100%);
+      -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 34%, #000 100%);
+      transition: background 280ms var(--ease), backdrop-filter 280ms var(--ease), -webkit-backdrop-filter 280ms var(--ease);
+    }
+    .interest-title {
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(1.35rem, 1.65vw, 1.65rem);
+      font-weight: 650;
+      letter-spacing: -.025em;
+      line-height: 1.15;
+    }
+    .interest-description {
+      max-width: none;
+      margin: .7rem 0 0;
+      color: rgb(255 255 255 / .84);
+      font-size: .9rem;
+      line-height: 1.5;
+      text-shadow: 0 1px 14px rgb(20 22 20 / .3);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .interest-card:hover .interest-media img,
+      .interest-card:focus-visible .interest-media img {
+        filter: saturate(.96) contrast(.97);
+        transform: scale(1.025);
+      }
+      .interest-card:hover .interest-media img.interest-cycling-image,
+      .interest-card:focus-visible .interest-media img.interest-cycling-image { transform: scale(1.4); }
+      .interest-card:hover::after,
+      .interest-card:focus-visible::after {
+        inset: 40% 0 0;
+        background: linear-gradient(180deg, transparent 0, rgb(20 22 20 / .1) 40%, rgb(20 22 20 / .7) 100%);
+      }
+      .interest-card:hover .interest-overlay::before,
+      .interest-card:focus-visible .interest-overlay::before {
+        background: linear-gradient(180deg, transparent 0, rgb(24 27 24 / .14) 52%, rgb(24 27 24 / .62) 100%);
+        backdrop-filter: blur(2px) saturate(103%);
+        -webkit-backdrop-filter: blur(2px) saturate(103%);
+      }
+      .interest-card:hover .interest-overlay,
+      .interest-card:focus-visible .interest-overlay { transform: translateY(0); }
+    }
+    @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+      .interest-overlay::before { background: linear-gradient(180deg, transparent 0, rgb(24 27 24 / .88) 52%, rgb(24 27 24 / .96) 100%); }
+    }
+    @media (hover: none), (pointer: coarse) {
+      .interest-overlay { transform: translateY(0); }
+    }
+    .footer {
+      padding-block: clamp(4rem, 7vw, 6rem) 1.5rem;
+      border-top: 1px solid var(--border);
+      background: var(--lilac);
+    }
+    .footer--contact-only { padding-block: 1.25rem; }
+    .footer--contact-only .footer-contact {
+      width: auto;
+      padding: 0;
+      border: 0;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(300px, .82fr);
+      gap: clamp(3rem, 8vw, 8rem);
+      align-items: end;
+    }
+    .footer-eyebrow {
+      margin: 0 0 1rem;
+      color: var(--accent-text);
+      font-family: var(--meta);
+      font-size: .7rem;
+      font-weight: 650;
+      letter-spacing: .055em;
+      text-transform: uppercase;
+    }
+    .footer-title {
+      max-width: 24ch;
+      font-size: clamp(2.35rem, 4.2vw, 4.25rem);
+    }
+    .footer-mark {
+      font-family: var(--meta);
+      font-size: .74rem;
+      font-weight: 700;
+      letter-spacing: .055em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .footer-links {
+      display: grid;
+      gap: 1.65rem;
+    }
+    .footer-status {
+      display: grid;
+      gap: .85rem;
+      color: color-mix(in srgb, var(--fg) 76%, transparent);
+      font-size: .88rem;
+    }
+    .footer-status p { margin: 0; }
+    .footer-status strong {
+      display: inline-block;
+      min-width: 3.5rem;
+      color: var(--fg);
+      font-family: var(--meta);
+      font-size: .68rem;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .footer-contact a {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      color: color-mix(in srgb, var(--fg) 78%, transparent);
+      font-size: .9rem;
+      text-decoration: none;
+    }
+    .footer-contact a:hover { color: var(--fg); text-decoration: underline; text-underline-offset: .3rem; }
+    .footer-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem 1.5rem;
+    }
+    .footer-contact a { gap: .5rem; }
+    .contact-icon {
+      display: inline-grid;
+      flex: 0 0 auto;
+      width: 1.65rem;
+      height: 1.65rem;
+      place-items: center;
+      border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent);
+      border-radius: 50%;
+      transition: color 150ms var(--ease), background-color 150ms var(--ease), border-color 150ms var(--ease);
+    }
+    .contact-icon::before {
+      content: "";
+      width: .92rem;
+      height: .92rem;
+      background: currentColor;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      -webkit-mask-size: contain;
+    }
+    .contact-icon-linkedin::before {
+      mask-image: url("assets/icons/brand-linkedin.svg");
+      -webkit-mask-image: url("assets/icons/brand-linkedin.svg");
+    }
+    .contact-icon-email::before {
+      mask-image: url("assets/icons/mail.svg");
+      -webkit-mask-image: url("assets/icons/mail.svg");
+    }
+    .footer-contact a:hover .contact-icon,
+    .footer-contact a:focus-visible .contact-icon {
+      border-color: var(--fg);
+      background: var(--fg);
+      color: var(--lilac);
+    }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-top: 1.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      color: color-mix(in srgb, var(--fg) 68%, transparent);
+      font-size: .78rem;
+    }
+    .footer-bottom p { margin: 0; }
+
+    @media (max-width: 1180px) {
+      .hero-grid { grid-template-columns: minmax(0, 1.22fr) minmax(300px, .78fr); }
+      .hero-main { padding: clamp(2rem, 3.8vw, 3.4rem); }
+      .hero-title { font-size: clamp(3.75rem, 6.2vw, 4.9rem); }
+      .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .interest-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 1.5rem; }
+    }
+
+    @media (max-width: 767px) {
+      :root { --page: clamp(1.25rem, 5vw, 1.5rem); --header-height: 60px; }
+      body { font-size: 16px; }
+      .section { padding-block: 3.75rem; }
+      .section-title { max-width: none; font-size: clamp(2rem, 8.5vw, 2.55rem); }
+      .site-header {
+        min-height: var(--header-height);
+        background: var(--bg);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .menu-button {
+        position: relative;
+        z-index: 7;
+        display: block;
+        min-width: 64px;
+        min-height: 44px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        font-family: var(--display);
+        font-size: .78rem;
+        font-weight: 700;
+        letter-spacing: .08em;
+        text-align: right;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+      .site-nav {
+        position: fixed;
+        z-index: 5;
+        inset: var(--header-height) 0 0;
+        display: grid;
+        align-content: start;
+        gap: .15rem;
+        padding: clamp(2.5rem, 10vh, 5rem) var(--page) var(--page);
+        background: var(--bg);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 150ms var(--ease), visibility 0s 150ms;
+      }
+      .site-nav.is-open { opacity: 1; visibility: visible; transition-delay: 0s; }
+      .site-nav a {
+        justify-items: start;
+        min-height: 56px;
+        padding-inline: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        color: var(--fg);
+        font-family: var(--display);
+        font-size: clamp(2.2rem, 11vw, 3.2rem);
+        line-height: 1.12;
+        letter-spacing: -.03em;
+        text-transform: none;
+      }
+      .site-nav a[aria-current="location"] { color: var(--accent-text); }
+      .site-nav a:hover { transform: none; }
+      .hero {
+        min-height: 0;
+        padding-top: var(--header-height);
+        padding-bottom: 0;
+      }
+      .hero > .shell { min-height: 0; padding: 1rem var(--page); }
+      .hero-archive {
+        min-height: 0;
+      }
+      .hero-grid {
+        min-height: 0;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto clamp(320px, 40vh, 350px);
+        gap: .75rem;
+      }
+      .hero-main {
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        padding: 1.65rem 1.15rem 1.45rem;
+      }
+      .hero-kicker { margin: 0 0 1.4rem; font-size: .62rem; }
+      .hero-title {
+        max-width: none;
+        font-size: clamp(2.8rem, 12.7vw, 3.3rem);
+        line-height: .91;
+      }
+      .hero-greeting { margin-bottom: .35rem; font-size: .49em; }
+      .hero-name { white-space: nowrap; }
+      .hero-intro { max-width: 34ch; margin: 1.05rem 0 0; font-size: .96rem; }
+      .hero-bio {
+        grid-template-columns: 1fr;
+        gap: .45rem;
+        margin-top: 1.2rem;
+        padding-top: .9rem;
+        font-size: .8rem;
+      }
+      .hero-frame {
+        grid-column: 1;
+        grid-row: 2;
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        padding: .6rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: none;
+        transform: none;
+      }
+      .hero-frame img { object-position: 50% 50%; border-radius: calc(var(--radius) - 6px); }
+      .work .shell > header,
+      .interests .shell > header { grid-template-columns: 1fr; gap: .8rem; }
+      .work .section-intro,
+      .interests .section-intro { margin-top: 0; }
+      .project-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 148px;
+        gap: .85rem;
+        margin-top: 2rem;
+      }
+      .project-card {
+        display: grid;
+        height: 148px;
+        grid-template-columns: minmax(124px, 42%) minmax(0, 1fr);
+        overflow: hidden;
+        aspect-ratio: auto;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: var(--paper);
+      }
+      .project-card::before,
+      .project-card::after { display: none; }
+      .project-card:hover,
+      .project-card:focus-within { transform: none; }
+      .project-image {
+        position: relative;
+        inset: auto;
+        min-height: 0;
+        aspect-ratio: auto;
+        border: 0;
+        border-radius: 0;
+      }
+      .project-copy {
+        position: relative;
+        inset: auto;
+        justify-content: center;
+        padding: .9rem 1rem;
+        color: var(--fg);
+        text-shadow: none;
+      }
+      .project-meta {
+        min-height: 0;
+        margin-bottom: .45rem;
+        color: var(--accent-text);
+        font-size: .57rem;
+      }
+      .project-copy h3 { min-height: 0; font-size: 1.03rem; line-height: 1.16; }
+      .interest-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .75rem;
+        margin-top: 2rem;
+      }
+      .interest-card {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        background: var(--paper);
+      }
+      .interest-media { position: relative; inset: auto; width: 100%; aspect-ratio: 4 / 5; }
+      .interest-card::after,
+      .interest-overlay::before { display: none; }
+      .interest-overlay {
+        position: relative;
+        inset: auto;
+        padding: .85rem;
+        color: var(--fg);
+        transform: translateY(0);
+      }
+      .interest-title { font-size: 1.18rem; }
+      .interest-description {
+        display: block;
+        margin-top: .45rem;
+        color: var(--muted);
+        font-size: .82rem;
+        line-height: 1.45;
+        text-shadow: none;
+      }
+      .footer-top { grid-template-columns: 1fr; gap: 2.5rem; align-items: start; }
+      .footer-bottom { align-items: flex-start; flex-direction: column; }
+      .footer-title { max-width: 22ch; font-size: clamp(1.9rem, 8.5vw, 2.55rem); }
+      .footer-links { width: 100%; gap: 1.4rem; }
+      .footer-contact {
+        width: 100%;
+        gap: .2rem 1.1rem;
+        padding: 1rem 0 0;
+        border-top: 1px solid var(--border);
+      }
+    }
+
+    @media (max-width: 360px) {
+      .hero-grid { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 300px; }
+      .hero-main { padding: 1.4rem .95rem 1.25rem; }
+      .hero-title { font-size: clamp(2.4rem, 12.4vw, 2.7rem); }
+      .project-grid { grid-auto-rows: 156px; }
+      .project-card {
+        height: 156px;
+        grid-template-columns: minmax(108px, 39%) minmax(0, 1fr);
+      }
+      .project-copy { padding: .75rem .8rem; }
+      .project-meta { font-size: .53rem; }
+      .project-copy h3 { font-size: .96rem; }
+      .interest-title { font-size: 1.08rem; }
+      .interest-description { font-size: .78rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+      .project-card,
+      .project-image img,
+      .interest-media img,
+      .interest-overlay { transform: none !important; }
+    }
+
+  </style>
+  <link rel="stylesheet" href="assets/site-brand.css">
+  <link rel="stylesheet" href="assets/hero-passport.css?v=20260822-1">
+</head>
+<body>
+  <a class="site-skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header shell" data-od-id="site-header">
+    <a class="home-mark" href="#about" aria-label="Rachel Chen, back to introduction"><span>Rachel Chen</span></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+      <a href="#about" data-section-link="about" aria-current="location">About</a>
+      <a href="#stories" data-section-link="stories">Stories</a>
+      <a href="#interests" data-section-link="interests">Interests</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="hero passport-hero" id="about" aria-labelledby="hero-title">
+      <div class="passport-scene shell">
+        <div class="boarding-pass" aria-hidden="true">
+          <div class="boarding-pass-top">
+            <span class="ticket-field"><span class="ticket-label">Passenger</span><span class="ticket-value">Rachel Chen</span></span>
+            <span class="ticket-field"><span class="ticket-label">Class</span><span class="ticket-value ticket-value-coral">Curious</span></span>
+          </div>
+          <div class="boarding-pass-main">
+            <p class="ticket-code">TPE</p>
+            <p class="ticket-destination">Where next?</p>
+          </div>
+          <div class="boarding-pass-bottom">
+            <span class="ticket-field"><span class="ticket-label">Gate</span><span class="ticket-value">01</span></span>
+            <span class="ticket-field"><span class="ticket-label">Boarding</span><span class="ticket-value ticket-value-coral">Boarding now</span></span>
+          </div>
+        </div>
+
+        <div class="taiwan-location" aria-hidden="true">
+          <div class="taiwan-map-wrap">
+            <img src="assets/taiwan-shadow.svg" alt="" width="190" height="350">
+            <span class="taipei-pin"></span>
+          </div>
+        </div>
+
+        <article class="passport-book" aria-label="Rachel Chen introduction">
+          <div class="passport-spread">
+            <div class="passport-page passport-page-identity">
+              <div class="passport-identity-heading">
+                <div>
+                  <span>Personal portfolio · TPE</span>
+                  <p>Passport to future</p>
+                </div>
+                <dl class="passport-identity-meta" aria-label="Portfolio passport metadata">
+                  <div><dt>Type</dt><dd>P</dd></div>
+                  <div><dt>Home</dt><dd>TWN</dd></div>
+                </dl>
+              </div>
+              <div class="passport-profile">
+                <figure class="passport-photo">
+                  <img src="assets/profile/rachel-hero.jpg" width="1200" height="1500" alt="Rachel Chen smiling beside a lakeside table." sizes="(max-width: 720px) 108px, (max-width: 1180px) 17vw, 190px" fetchpriority="high">
+                </figure>
+                <dl class="passport-fields">
+                  <div class="passport-field">
+                    <dt class="passport-label">Holder</dt>
+                    <dd class="passport-value">Rachel Chen</dd>
+                  </div>
+                  <div class="passport-field">
+                    <dt class="passport-label">Work</dt>
+                    <dd class="passport-value">Technology<br>consulting</dd>
+                  </div>
+                </dl>
+              </div>
+              <div class="passport-code" aria-hidden="true">
+                <span>RACHEL&lt;&lt;CHEN&lt;&lt;LISTEN&lt;&lt;LEARN&lt;&lt;SHARE</span>
+                <span>TPE&lt;&lt;MUSIC&lt;&lt;JAPANESE&lt;&lt;WRITING</span>
+              </div>
+            </div>
+
+            <div class="passport-page passport-page-intro">
+              <img class="passport-watermark" src="assets/taiwan-shadow.svg" alt="" width="190" height="350" aria-hidden="true">
+              <div class="passport-copy">
+                <h1 id="hero-title">Hi, I’m Rachel.</h1>
+                <p>I follow what I love, and share what I learn along the way.</p>
+              </div>
+              <div class="passport-stamp" aria-hidden="true"><span>R</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section work" id="stories" aria-labelledby="stories-title">
+      <span id="work" aria-hidden="true"></span>
+      <div class="shell">
+        <header>
+          <h2 class="display section-title" id="stories-title">Selected stories.</h2>
+          <p class="section-intro">Three stories about community, personal experience, and performance.</p>
+        </header>
+
+        <div class="project-grid">
+          <article class="project-card" data-category="community">
+            <figure class="project-image project-image--volunteer">
+              <img src="assets/projects/urban-poverty/volunteer-cover-wide-v2.png" width="1108" height="623" alt="Rachel Chen volunteering on a Taipei street while carrying Big Issue outreach materials." loading="lazy">
+            </figure>
+            <div class="project-copy">
+              <p class="project-meta">Urban poverty / Fieldwork + research + animation</p>
+              <h3>Listening to people, questioning labels.</h3>
+            </div>
+            <a class="project-card-link" href="stories/urban-poverty-animation.html"><span class="sr-only">View story: Listening to people, questioning labels</span></a>
+          </article>
+
+          <article class="project-card" data-category="storytelling">
+            <figure class="project-image project-image--presentation">
+              <img src="assets/stories/presentation/contest-group.jpg" width="1500" height="2000" alt="Rachel Chen holding her contestant badge with others at the NTU Presentation Contest." loading="lazy">
+            </figure>
+            <div class="project-copy">
+              <p class="project-meta">Presentation contest / Personal story</p>
+              <h3>Telling my illness story on stage.</h3>
+            </div>
+            <a class="project-card-link" href="stories/presentation-contest-story.html"><span class="sr-only">View story: Telling my illness story on stage</span></a>
+          </article>
+
+          <article class="project-card" data-category="performance">
+            <figure class="project-image project-image--performance">
+              <img src="assets/interest-guitarist.jpg" width="1472" height="1472" alt="Rachel Chen playing acoustic guitar onstage at BICD Night." loading="lazy">
+            </figure>
+            <div class="project-copy">
+              <p class="project-meta">Performance archive / Voice + guitar</p>
+              <h3>Nine years of performing, and still counting.</h3>
+            </div>
+            <a class="project-card-link" href="stories/performance-archive.html"><span class="sr-only">View story: Nine years of performing, and still counting</span></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section interests" id="interests" aria-labelledby="interests-title">
+      <div class="shell">
+        <header>
+          <h2 class="display section-title" id="interests-title">What keeps me curious.</h2>
+          <p class="section-intro">Music, culture, and exploring at my own pace.</p>
+        </header>
+
+        <div class="interest-grid">
+          <article class="interest-card" id="interest-singer" tabindex="0">
+            <figure class="interest-media">
+              <img class="interest-singer-image" src="assets/interest-singer.jpg" width="1800" height="1200" alt="Rachel Chen singing into a microphone during an acoustic performance at Backstage Café." loading="lazy">
+            </figure>
+            <div class="interest-overlay">
+              <h3 class="interest-title">Singer</h3>
+              <p class="interest-description">I sang in my elementary-school choir from six to twelve and joined my junior-high choir at thirteen. I kept singing and have performed onstage every year for the past nine years.</p>
+            </div>
+          </article>
+
+          <article class="interest-card" id="interest-guitarist" tabindex="0">
+            <figure class="interest-media">
+              <img class="interest-guitarist-image" src="assets/interest-guitarist-practice.jpg" width="1290" height="1490" alt="Rachel Chen practicing acoustic guitar indoors." loading="lazy">
+            </figure>
+            <div class="interest-overlay">
+              <h3 class="interest-title">Guitarist</h3>
+              <p class="interest-description">I bought my first guitar after high school. NTU’s guitar club gave me people to form bands with and opportunities to sing and play on my own. I still perform after graduation.</p>
+            </div>
+          </article>
+
+          <article class="interest-card" id="interest-concertgoer" tabindex="0">
+            <figure class="interest-media">
+              <img class="interest-concertgoer-image" src="assets/interest-concertgoer.jpg" width="1350" height="1800" alt="Rachel Chen making a heart gesture inside a stadium before a concert." loading="lazy">
+            </figure>
+            <div class="interest-overlay">
+              <h3 class="interest-title">Concertgoer</h3>
+              <p class="interest-description">Live music has become a way I remember different seasons of my life. I attend around 25 concerts a year and sometimes travel to Japan or Singapore for the artists I love.</p>
+            </div>
+          </article>
+
+          <article class="interest-card" id="interest-japanese-culture" tabindex="0">
+            <figure class="interest-media">
+              <img class="interest-japanese-culture-image" src="assets/interest-japanese-culture.jpg" width="1350" height="1800" alt="Rachel Chen wearing a kimono near a traditional temple in Japan." loading="lazy">
+            </figure>
+            <div class="interest-overlay">
+              <h3 class="interest-title">Japanese Culture</h3>
+              <p class="interest-description">Self-taught to JLPT N1, I can now translate, speak with people in Japanese, and understand more of the culture behind what I enjoy.</p>
+            </div>
+          </article>
+
+          <article class="interest-card" id="interest-exhibitions" tabindex="0">
+            <figure class="interest-media">
+              <img src="assets/interest-exhibitions-v2.jpg?v=privacy" width="1086" height="1448" alt="Rachel Chen standing in a museum gallery beside a large dinosaur skeleton." loading="lazy">
+            </figure>
+            <div class="interest-overlay">
+              <h3 class="interest-title">Exhibitions</h3>
+              <p class="interest-description">I visit museums and galleries throughout the year, from photography shows and painting exhibitions to natural history collections.</p>
+            </div>
+          </article>
+
+          <article class="interest-card" id="interest-cycling" tabindex="0">
+            <figure class="interest-media">
+              <img class="interest-cycling-image" src="assets/interest-cycling.jpg" width="1800" height="1350" alt="Rachel Chen making a peace sign beside a YouBike with Taipei’s Grand Hotel in the background." loading="lazy">
+            </figure>
+            <div class="interest-overlay">
+              <h3 class="interest-title">Cycling</h3>
+              <p class="interest-description">On a bike, I can explore at my own pace, moving through the city, noticing the route, and leaving room for an unplanned stop.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer footer--contact-only">
+    <div class="shell">
+      <nav class="footer-contact" aria-label="Contact links">
+        <a href="https://www.linkedin.com/in/rachel-wenyu-chen/" target="_blank" rel="noopener noreferrer"><span class="contact-icon contact-icon-linkedin" aria-hidden="true"></span><span>LinkedIn</span></a>
+        <a href="mailto:rachel8711123@gmail.com"><span class="contact-icon contact-icon-email" aria-hidden="true"></span><span>Email</span></a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const menuButton = document.querySelector('.menu-button');
+      const nav = document.querySelector('.site-nav');
+      const navLinks = [...nav.querySelectorAll('a')];
+      const sectionLinks = [...nav.querySelectorAll('[data-section-link]')];
+      const sections = sectionLinks
+        .map(link => document.getElementById(link.dataset.sectionLink))
+        .filter(Boolean);
+      const mobileMenuQuery = window.matchMedia('(max-width: 767px)');
+      const closeMenu = () => {
+        nav.classList.remove('is-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.textContent = 'Menu';
+        document.body.classList.remove('menu-open');
+      };
+
+      menuButton.addEventListener('click', () => {
+        const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+        if (isOpen) {
+          closeMenu();
+          return;
+        }
+        nav.classList.add('is-open');
+        menuButton.setAttribute('aria-expanded', 'true');
+        menuButton.textContent = 'Close';
+        document.body.classList.add('menu-open');
+        requestAnimationFrame(() => navLinks[0].focus());
+      });
+
+      navLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+      const setCurrentSection = sectionId => {
+        sectionLinks.forEach(link => {
+          if (link.dataset.sectionLink === sectionId) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      let sectionUpdatePending = false;
+      const updateCurrentSection = () => {
+        const threshold = document.querySelector('.site-header').getBoundingClientRect().bottom + innerHeight * .25;
+        const current = sections.filter(section => section.getBoundingClientRect().top <= threshold).at(-1) || sections[0];
+        if (current) setCurrentSection(current.id);
+        sectionUpdatePending = false;
+      };
+      const scheduleSectionUpdate = () => {
+        if (sectionUpdatePending) return;
+        sectionUpdatePending = true;
+        requestAnimationFrame(updateCurrentSection);
+      };
+      window.addEventListener('scroll', scheduleSectionUpdate, { passive: true });
+      window.addEventListener('resize', scheduleSectionUpdate);
+      updateCurrentSection();
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+          closeMenu();
+          menuButton.focus();
+        }
+
+        if (event.key === 'Tab' && nav.classList.contains('is-open')) {
+          const focusable = [menuButton, ...navLinks];
+          const current = focusable.indexOf(document.activeElement);
+          const next = (current + (event.shiftKey ? -1 : 1) + focusable.length) % focusable.length;
+          event.preventDefault();
+          focusable[next].focus();
+        }
+      });
+
+      mobileMenuQuery.addEventListener?.('change', event => {
+        if (!event.matches) closeMenu();
+      });
+
+    })();
+  </script>
+</body>
+</html>

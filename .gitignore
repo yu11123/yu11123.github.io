@@ -1,0 +1,13 @@
+.DS_Store
+**/.DS_Store
+.env
+.env.*
+*.log
+*.bundle
+*.MOV
+*.mov
+*.HEIC
+*.heic
+source-media/
+tmp/
+node_modules/
