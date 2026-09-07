@@ -1,0 +1,94 @@
+/* Stories are links. Interests are photographs with always-visible captions. */
+#stories .project-copy { position: static; z-index: auto; }
+#stories .project-card-link {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  min-height: 44px;
+  margin-top: auto;
+  padding-top: .65rem;
+  color: var(--accent-text);
+  font-size: .95rem;
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+#stories .project-card-link::after { content: ""; position: absolute; inset: 0; z-index: 3; border-radius: 10px; }
+#stories .project-card:focus-within { outline: 2px solid var(--accent-text); outline-offset: 5px; border-radius: 10px; }
+#stories .project-card-link:focus-visible { outline: none; }
+#stories .project-card:hover .project-card-link { color: var(--fg); }
+
+#interests .interest-card {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+#interests .interest-media {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: clamp(260px, 21vw, 292px);
+  flex: 0 0 auto;
+  border-radius: 10px;
+}
+#interests .interest-card .interest-media img {
+  filter: saturate(.84) contrast(.95);
+  transform: none;
+  transition: none;
+}
+#interests .interest-card .interest-media img.interest-cycling-image { transform: scale(1.4) !important; }
+#interests .interest-card::after,
+#interests .interest-overlay::before { display: none; }
+#interests .interest-overlay {
+  position: static;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem .1rem 0;
+  color: var(--fg);
+  transform: none;
+  transition: none;
+}
+#interests .interest-description { margin-top: .6rem; color: var(--muted); font-size: 1rem; line-height: 1.5; text-shadow: none; }
+.interest-story-link,
+.interests-return a {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  min-height: 44px;
+  color: var(--accent-text);
+  font-size: .95rem;
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+.interest-story-link { margin-top: auto; padding-top: .6rem; }
+.interests-return { display: flex; justify-content: flex-end; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+.interest-story-link:hover, .interests-return a:hover { color: var(--fg); }
+.interest-story-link:focus-visible, .interests-return a:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 4px; }
+
+@media (max-width: 767px) {
+  #stories .project-grid { grid-auto-rows: auto; }
+  #stories .project-card { height: auto; min-height: 180px; }
+  #stories .project-copy { padding: .85rem; }
+  #stories .project-meta { font-size: .65rem; }
+  #stories .project-copy h3 { font-size: 1.08rem; line-height: 1.22; }
+  #stories .project-image--presentation img { object-position: 36% 42%; }
+  #stories .project-card-link { font-size: .9rem; padding-top: .5rem; }
+  #interests .interest-media { height: auto; aspect-ratio: 4 / 5; }
+  #interests .interest-overlay { padding-top: .8rem; }
+  #interests .interest-title { font-size: 1.2rem; }
+  #interests .interest-description { font-size: .9rem; }
+  .interest-story-link { flex-wrap: wrap; font-size: .9rem; gap: 0 .35rem; }
+}
+@media (max-width: 360px) {
+  #stories .project-card { grid-template-columns: minmax(96px, 35%) minmax(0, 1fr); }
+  #stories .project-copy { padding: .75rem; }
+  #stories .project-copy h3 { font-size: 1rem; }
+}

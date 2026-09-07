@@ -3,7 +3,8 @@
   src: url("fonts/manrope-latin-variable.woff2") format("woff2");
   font-style: normal;
   font-weight: 200 800;
-  font-display: swap;
+  /* Preloaded on content pages; a slow font must not reflow an active reader. */
+  font-display: optional;
 }
 
 @font-face {
@@ -11,7 +12,7 @@
   src: url("fonts/source-sans-3-latin-variable.woff2") format("woff2");
   font-style: normal;
   font-weight: 200 900;
-  font-display: swap;
+  font-display: optional;
 }
 
 :root {

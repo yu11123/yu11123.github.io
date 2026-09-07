@@ -10,6 +10,9 @@
   <link rel="canonical" href="https://yu11123.github.io/">
   <title>Rachel Chen | Portfolio</title>
   <link rel="icon" href="data:,">
+  <link rel="preload" href="assets/fonts/manrope-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/source-sans-3-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/passport-guilloche.svg" as="image" fetchpriority="high">
   <style>
     :root {
       --bg: oklch(0.979 0.0123 91.52);
@@ -816,8 +819,9 @@
     }
 
   </style>
-  <link rel="stylesheet" href="assets/site-brand.css?v=stories-intro-20260907">
+  <link rel="stylesheet" href="assets/site-brand.css?v=stable-reading-20260907">
   <link rel="stylesheet" href="assets/hero-passport.css?v=20260822-1">
+  <link rel="stylesheet" href="assets/home-navigation.css?v=20260907">
 </head>
 <body>
   <a class="site-skip-link" href="#main-content">Skip to content</a>
@@ -919,8 +923,8 @@
             <div class="project-copy">
               <p class="project-meta">Urban poverty / Fieldwork + research + animation</p>
               <h3>Listening to people, questioning labels.</h3>
+              <a class="project-card-link" href="stories/urban-poverty-animation.html" aria-label="Read story: Listening to people, questioning labels">Read story <span aria-hidden="true">→</span></a>
             </div>
-            <a class="project-card-link" href="stories/urban-poverty-animation.html"><span class="sr-only">View story: Listening to people, questioning labels</span></a>
           </article>
 
           <article class="project-card" data-category="storytelling">
@@ -930,8 +934,8 @@
             <div class="project-copy">
               <p class="project-meta">NTU Presentation Contest / Silver Award</p>
               <h3>Finding the courage to tell my story.</h3>
+              <a class="project-card-link" href="stories/presentation-contest-story.html" aria-label="Read story: Finding the courage to tell my story">Read story <span aria-hidden="true">→</span></a>
             </div>
-            <a class="project-card-link" href="stories/presentation-contest-story.html"><span class="sr-only">View story: Finding the courage to tell my story</span></a>
           </article>
 
           <article class="project-card" data-category="performance">
@@ -941,8 +945,8 @@
             <div class="project-copy">
               <p class="project-meta">Performance archive / Voice + guitar</p>
               <h3>Nine years of performing, and still counting.</h3>
+              <a class="project-card-link" href="stories/performance-archive.html" aria-label="Read story: Nine years of performing, and still counting">Read story <span aria-hidden="true">→</span></a>
             </div>
-            <a class="project-card-link" href="stories/performance-archive.html"><span class="sr-only">View story: Nine years of performing, and still counting</span></a>
           </article>
 
         </div>
@@ -957,27 +961,29 @@
         </header>
 
         <div class="interest-grid">
-          <article class="interest-card" id="interest-singer" tabindex="0">
+          <article class="interest-card" id="interest-singer">
             <figure class="interest-media">
               <img class="interest-singer-image" src="assets/interest-singer.jpg" width="1800" height="1200" alt="Rachel Chen singing into a microphone during an acoustic performance at Backstage Café." loading="lazy">
             </figure>
             <div class="interest-overlay">
               <h3 class="interest-title">Singer</h3>
               <p class="interest-description">I sang in my elementary-school choir from six to twelve and joined my junior-high choir at thirteen. I kept singing and have performed onstage every year for the past nine years.</p>
+              <a class="interest-story-link" href="stories/performance-archive.html">See my performances <span aria-hidden="true">→</span></a>
             </div>
           </article>
 
-          <article class="interest-card" id="interest-guitarist" tabindex="0">
+          <article class="interest-card" id="interest-guitarist">
             <figure class="interest-media">
               <img class="interest-guitarist-image" src="assets/interest-guitarist-practice.jpg" width="1290" height="1490" alt="Rachel Chen practicing acoustic guitar indoors." loading="lazy">
             </figure>
             <div class="interest-overlay">
               <h3 class="interest-title">Guitarist</h3>
               <p class="interest-description">I bought my first guitar after high school. NTU’s guitar club gave me people to form bands with and opportunities to sing and play on my own. I still perform after graduation.</p>
+              <a class="interest-story-link" href="stories/performance-archive.html#guitar-club">See my performances <span aria-hidden="true">→</span></a>
             </div>
           </article>
 
-          <article class="interest-card" id="interest-concertgoer" tabindex="0">
+          <article class="interest-card" id="interest-concertgoer">
             <figure class="interest-media">
               <img class="interest-concertgoer-image" src="assets/interest-concertgoer.jpg" width="1350" height="1800" alt="Rachel Chen making a heart gesture inside a stadium before a concert." loading="lazy">
             </figure>
@@ -987,7 +993,7 @@
             </div>
           </article>
 
-          <article class="interest-card" id="interest-japanese-culture" tabindex="0">
+          <article class="interest-card" id="interest-japanese-culture">
             <figure class="interest-media">
               <img class="interest-japanese-culture-image" src="assets/interest-japanese-culture.jpg" width="1350" height="1800" alt="Rachel Chen wearing a kimono near a traditional temple in Japan." loading="lazy">
             </figure>
@@ -997,7 +1003,7 @@
             </div>
           </article>
 
-          <article class="interest-card" id="interest-exhibitions" tabindex="0">
+          <article class="interest-card" id="interest-exhibitions">
             <figure class="interest-media">
               <img src="assets/interest-exhibitions-v2.jpg?v=privacy" width="1086" height="1448" alt="Rachel Chen standing in a museum gallery beside a large dinosaur skeleton." loading="lazy">
             </figure>
@@ -1007,7 +1013,7 @@
             </div>
           </article>
 
-          <article class="interest-card" id="interest-cycling" tabindex="0">
+          <article class="interest-card" id="interest-cycling">
             <figure class="interest-media">
               <img class="interest-cycling-image" src="assets/interest-cycling.jpg" width="1800" height="1350" alt="Rachel Chen making a peace sign beside a YouBike with Taipei’s Grand Hotel in the background." loading="lazy">
             </figure>
@@ -1017,6 +1023,7 @@
             </div>
           </article>
         </div>
+        <div class="interests-return"><a href="#stories">Explore my stories <span aria-hidden="true">↑</span></a></div>
       </div>
     </section>
 

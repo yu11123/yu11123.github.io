@@ -74,12 +74,18 @@
 
 /* One page scroll; JavaScript switches chapters without nesting a scroll area. */
 .speech-transcript { min-width: 0; scroll-margin-top: var(--index-height); }
+/* Match the enhanced first chapter before its script arrives. */
+.speech-transcript:not(.is-enhanced) [data-speech-chapter]:not([data-speech-chapter="work"]) { display: none; }
+/* Chapter links still work if the enhancement script is unavailable. */
+.speech-transcript:not(.is-enhanced):has([data-speech-chapter]:target) [data-speech-chapter] { display: none; }
+.speech-transcript:not(.is-enhanced) [data-speech-chapter]:target { display: block !important; }
 .transcript-heading { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
 .transcript-heading h2 { margin: 0; font-family: var(--font-display); font-size: 1.2rem; font-weight: 650; letter-spacing: -.025em; line-height: 1.25; }
 .transcript-languages { display: flex; gap: .25rem; padding: .2rem; border: 1px solid var(--color-border); border-radius: .4rem; }
 .speech-transcript [hidden] { display: none !important; }
 .transcript-languages button { min-height: 44px; padding: .45rem .8rem; border: 0; border-radius: .25rem; background: transparent; color: inherit; font: inherit; font-size: .9rem; cursor: pointer; }
 .transcript-languages button[aria-pressed="true"] { background: var(--color-text); color: var(--color-paper); }
+.speech-transcript button:disabled { cursor: default; }
 .transcript-layout { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); align-items: start; gap: 1.25rem clamp(1.25rem, 2.5vw, 2.5rem); margin-top: .75rem; }
 .transcript-layout > div { min-width: 0; }
 .transcript-sections { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .35rem; margin: 0; }

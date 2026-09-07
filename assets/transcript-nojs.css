@@ -1,0 +1,4 @@
+/* No JavaScript: retain the full readable transcript and timestamp links. */
+.speech-transcript:not(.is-enhanced) [data-speech-chapter] { display: block !important; }
+.transcript-languages, .transcript-reader-footer { display: none; }
+.transcript-play::after { content: " ↗"; white-space: pre; }

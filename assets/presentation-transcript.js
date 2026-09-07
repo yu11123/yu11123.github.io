@@ -58,8 +58,8 @@
   };
 
   transcript.classList.add('is-enhanced');
-  transcript.querySelector('.transcript-languages').hidden = false;
-  expand.hidden = false;
+  languages.forEach(button => { button.disabled = false; });
+  expand.disabled = false;
   render();
   readHash();
   window.addEventListener('hashchange', readHash);
@@ -84,7 +84,6 @@
   });
   if (player) transcript.querySelectorAll('[data-speech-start]').forEach(link => {
     // Keep timestamped YouTube links usable without JavaScript.
-    link.textContent = link.textContent.replace(' ↗', '');
     link.addEventListener('click', event => {
       if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       const start = Number(link.dataset.speechStart);
