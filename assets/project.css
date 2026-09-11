@@ -841,7 +841,7 @@ button:focus-visible {
 .capstone-gallery img {
   width: 100%;
   height: auto;
-  aspect-ratio: auto;
+  /* Preserve the width/height attributes' ratio while lazy images load. */
   object-fit: contain;
   border-radius: 10px;
   background: transparent;
